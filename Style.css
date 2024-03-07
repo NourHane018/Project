@@ -1,0 +1,89 @@
+@media screen and (min-width: 480px) {
+.body {
+  background-image:"therap img/bacg.png" ;
+ font-family: Arial, sans-serif; 
+}
+.navbar {
+ display: flex; 
+ justify-content: space-between;
+ align-items: center;
+ background-color: #f8f8f800;
+ padding: 10px;
+}
+.navbar ul {
+ list-style-type: none;
+ position: absolute;
+ width: 512px;
+ height: 27px;
+ right: 320px;
+ top: 48px;
+ font-family: 'Poppins';
+ font-style: normal;
+ font-weight: 400;
+ font-size: 18px;
+ line-height: 27px;
+ color: #414141;
+}
+.navbar li { 
+ display: inline;
+  margin-right: 20px;
+}
+.navbar a {
+ text-decoration: none;
+ color: #12121f;
+
+}
+.container {
+ padding: 20px;
+}
+.header { 
+ margin-bottom: 20px;
+}
+.header h1 {
+  /* Al-Safa Clinic */
+ margin: 0;
+ position: absolute;
+ left: 2.97%;
+ right: 65.7%;
+ top: 30.17%;
+ bottom: 63.34%;
+ font-family: 'K2D';
+ font-style: italic;
+ font-weight: 500;
+ font-size: 49px;
+ line-height: 64px;
+ letter-spacing: 0.03em;
+ background: radial-gradient(50% 50% at 50% 50%, #5DADC4 0%, #315467 100%);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+.header p{
+ position: absolute;
+ left: 3.44%;
+ right: 52.5%;
+ top: 40.87%;
+ bottom: 29.69%;
+ font-family: 'K2D';
+ font-style: normal;
+ font-weight: 600;
+ font-size: 24px;
+ line-height: 31px;
+ color: #12121F;
+}
+.button {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+position: absolute;
+width: 187px;
+height: 64px;
+left: 195px;
+top: 766px;
+}
+.logo{
+    width: -40px;
+}
+}
