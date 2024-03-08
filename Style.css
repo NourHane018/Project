@@ -3,36 +3,7 @@
   background-image:"therap img/bacg.png" ;
  font-family: Arial, sans-serif; 
 }
-.navbar {
- display: flex; 
- justify-content: space-between;
- align-items: center;
- background-color: #f8f8f800;
- padding: 10px;
-}
-.navbar ul {
- list-style-type: none;
- position: absolute;
- width: 512px;
- height: 27px;
- right: 320px;
- top: 48px;
- font-family: 'Poppins';
- font-style: normal;
- font-weight: 400;
- font-size: 18px;
- line-height: 27px;
- color: #414141;
-}
-.navbar li { 
- display: inline;
-  margin-right: 20px;
-}
-.navbar a {
- text-decoration: none;
- color: #12121f;
 
-}
 .container {
  padding: 20px;
 }
@@ -68,8 +39,9 @@
  font-style: normal;
  font-weight: 600;
  font-size: 24px;
- line-height: 31px;
+ line-height: 1.5;
  color: #12121F;
+ margin: 0;
 }
 .button {
 display: flex;
@@ -87,3 +59,106 @@ top: 766px;
     width: -40px;
 }
 }
+/* -- about us --*/
+.about_us {
+  
+  padding: 20px;
+  text-align: center;
+  margin-top: 1000px;
+  width: 80%;
+  position: relative;
+}
+.who{
+   font-family: 'K2D';
+  font-style: italic;
+  font-weight: 500;
+  font-size: 49px;
+  line-height: 80px;
+  letter-spacing: 0.03em;
+  background: radial-gradient(50% 50% at 50% 50%, #5DADC4 0%, #315467 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+ }
+
+
+.about img{
+  width: 579px;
+  height: 579px;
+  position: absolute;
+  left: -20px; 
+}
+.service{
+  padding: 60px; /*changed*/
+  margin-top: 500px;
+}
+.img1{
+
+width: 579px;
+  left: 2000px;
+  height: 579px;
+}
+.what{
+  text-align: center;
+  font-family: 'K2D';
+  font-style: italic;
+  font-weight: 500;
+  font-size: 49px;
+  line-height: 80px;
+  letter-spacing: 0.03em;
+  background: radial-gradient(50% 50% at 50% 50%, #5DADC4 0%, #315467 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.contect{
+  padding: 60px; /*changed*/
+  margin-top: 500px;
+
+}
+.img2{
+  width: 579px;
+  position: absolute;
+  right: 0rem; /* Align the element to the right side */
+  height: 579px;
+}
+.menu {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px; /* Adjust padding as needed */
+  z-index: 1000; /* Ensure the menu bar appears above other content */
+}
+
+.menu ul {
+  list-style-type: none;
+ position: absolute;
+ width: 512px;
+ height: 27px;
+ right: -320px;
+ top: 48px;
+ font-family: 'Poppins';
+ font-style: normal;
+ font-weight: 400;
+ font-size: 18px;
+ line-height: 27px;
+ color: #414141;
+}
+
+.menu ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.menu ul li:first-child {
+  margin-left: 0; /* Remove margin for the first menu item */
+}
+
+.menu ul li a {
+  text-decoration: none;
+ color: #12121f;
+}
+
+
+
