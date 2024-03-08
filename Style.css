@@ -50,13 +50,13 @@ justify-content: center;
 align-items: center;
 padding: 0px;
 position: absolute;
-width: 187px;
+width: 14%;
 height: 64px;
 left: 195px;
 top: 766px;
 }
 .logo{
-    width: -40px;
+    width: "100%";
 }
 }
 /* -- about us --*/
