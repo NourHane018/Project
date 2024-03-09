@@ -18,11 +18,11 @@
  right: 65.7%;
  top: 30.17%;
  bottom: 63.34%;
- font-family: 'K2D';
+ font-family: Arial, sans-serif;
  font-style: italic;
  font-weight: 500;
  font-size: 49px;
- line-height: 64px;
+ line-height: 50px;
  letter-spacing: 0.03em;
  background: radial-gradient(50% 50% at 50% 50%, #5DADC4 0%, #315467 100%);
  -webkit-background-clip: text;
@@ -35,7 +35,7 @@
  right: 52.5%;
  top: 40.87%;
  bottom: 29.69%;
- font-family: 'K2D';
+ font-family: Helvetica, sans-serif;
  font-style: normal;
  font-weight: 600;
  font-size: 24px;
@@ -43,22 +43,54 @@
  color: #12121F;
  margin: 0;
 }
-.button {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 0px;
-position: absolute;
-width: 14%;
-height: 64px;
-left: 195px;
-top: 766px;
+/*button*/
+.large-box {
+  background: #5dadc4;
+  border-radius: 0.4rem;
+  box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  height: 4rem;
+  left: 21rem;
+  padding: 0.8rem 1.6rem;
+  position: absolute;
+  top: 35rem;
+  width: 10rem;
 }
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  text-decoration: none; /* Remove default link underline */
+  color: inherit; /* Inherit text color */
+  font-family: "Arial", sans-serif;
+  font-size: 1.4rem;
+}
+
+.custom-button {
+  background-color: #6e6e6e;
+  border: none;
+  color: #315467;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.4rem;
+  cursor: pointer; /* Ensure the cursor indicates interactivity */
+}
+
+.large-icon {
+  height: 2rem;
+  width: 2rem;
+  object-fit: contain;
+}
+
+
+/* button */
 .logo{
     width: "100%";
 }
-}
+
 /* -- about us --*/
 .about_us {
   
@@ -69,7 +101,7 @@ top: 766px;
   position: relative;
 }
 .who{
-   font-family: 'K2D';
+   font-family: Arial, sans-serif;
   font-style: italic;
   font-weight: 500;
   font-size: 49px;
@@ -100,7 +132,7 @@ width: 579px;
 }
 .what{
   text-align: center;
-  font-family: 'K2D';
+  font-family: Arial, sans-serif;
   font-style: italic;
   font-weight: 500;
   font-size: 49px;
@@ -124,41 +156,68 @@ width: 579px;
 }
 .menu {
   position: fixed;
-  top: 0;
-  left: 50%;
+  top: 10px; /* تغيير للاعلى والاسفل للشريط*/
+  left: 15%; /* تغيير لليمين واليسار */
   transform: translateX(-50%);
-  padding: 10px 20px; /* Adjust padding as needed */
+  padding: 10px 30px; /* Adjust padding as needed */
   z-index: 1000; /* Ensure the menu bar appears above other content */
 }
 
 .menu ul {
   list-style-type: none;
- position: absolute;
+ position: relative;
  width: 512px;
  height: 27px;
- right: -320px;
- top: 48px;
- font-family: 'Poppins';
+ right: -600px;
+ top: 10px;
+ font-family: Helvetica, sans-serif;
  font-style: normal;
  font-weight: 400;
  font-size: 18px;
  line-height: 27px;
- color: #414141;
+ color: #ffffff;
 }
 
 .menu ul li {
   display: inline;
-  margin-right: 20px;
-}
-
-.menu ul li:first-child {
-  margin-left: 0; /* Remove margin for the first menu item */
+ position: relative;
+ margin-right: 60px; /* تغيير المسافه بين كل كلمه في الشريط*/
 }
 
 .menu ul li a {
   text-decoration: none;
- color: #12121f;
+ color: #1b1b1b;
+ position: relative;
 }
+.menu ul li a::before {
+  content: '';
+  position: absolute;
+  top: 100%; /* Adjust as needed */
+  left: 0;
+  width: 0; /* Adjust as needed */
+  height: 4px; /* Adjust as needed */
+  background: #79afce; /*  تغيير لون الاضافه للشريط*/
+  transition: .3s;
+}
+.menu ul li a:hover::before{
+  width: 100%;
+}
+.logo1{
+  background-color: #e0e0e0; /* Background color */
+  padding: 10px;
+  text-align: center;
+  width: 100%; /* Adjust width to take full width of the container */
+  height: 160px;
+  position: absolute;
+  bottom: 0; /* Position at the bottom of the container */
+  left: 0; /* Position at the left of the container */
+  top: 4000px;
+}
+.img3{
+  width: 10rem; /*حجم اللوغو الي تحت */
+  position: absolute;
+  left: 20px; 
+  height: auto; 
 
-
-
+}
+}
