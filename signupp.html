@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styleSign.css"> <!-- Link your CSS file if you have one -->
+    <style>
+        body {
+            background-color: #13161b;
+            height: 1000rem;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            margin: 0; /* Reset margin to remove default space */
+            padding: 0; /* Reset padding to remove default space */
+            font-family: Arial, sans-serif; /* Specify font family */
+            color: #000000; /* Set text color */
+        }
+
+        .item-1-1-1-xJa {
+            flex-shrink: 0;
+                    height: 6rem;
+                    object-fit: cover;
+                    vertical-align: top;
+                    width: 16rem;
+                    max-width: 520px;
+                    margin-left: 20px;
+                  } 
+                  
+                  
+                  .container {
+            max-width: 400px; /* Adjusted max-width */
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Adjusted margin */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 8px; /* Adjusted padding */
+            font-size: 14px; /* Adjusted font size */
+            border-radius: 3px; /* Adjusted border radius */
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px; /* Adjusted border radius */
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+                  
+                  </style>
+</head>
+<body>
+    <img class="item-1-1-1-xJa" src="logo.svg" id="29:146"/>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form action="submit_form.php" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <div class="form-group">
+                <label for="role">I am:</label>
+                <select id="role" name="role">
+                    <option value="doctor">Doctor</option>
+                    <option value="patient">Patient</option>
+                </select>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+</body>
+</html>
