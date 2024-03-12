@@ -43,7 +43,7 @@
  color: #12121F;
  margin: 0;
 }
-/*button*/
+/*button vv */
 .large-box {
   background: #5dadc4;
   border-radius: 0.4rem;
@@ -86,21 +86,21 @@
 }
 
 
-/* button */
+/* button ^^ */
 .logo{
     width: "100%";
 }
 
 /* -- about us --*/
 .about_us {
-  
   padding: 20px;
-  text-align: center;
   margin-top: 1000px;
   width: 80%;
+  left: 50px;
   position: relative;
 }
 .who{
+  text-align: center;
    font-family: Arial, sans-serif;
   font-style: italic;
   font-weight: 500;
@@ -120,6 +120,15 @@
   position: absolute;
   left: -20px; 
 }
+.par{
+  position: relative;
+  text-align: left; /* Align paragraph text to the left */
+  font-size: 140px; /* Set font size to appear smaller */
+ top: 200px;
+  margin-bottom: 20px; /* Adjust bottom margin */
+  left: 660px;
+}
+/*Service */
 .service{
   padding: 60px; /*changed*/
   margin-top: 500px;
@@ -143,6 +152,22 @@ width: 579px;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+.list{ /*الكتابة*/
+  font-family: Arial,sans-serif;
+top: -620px; /* للاعلى والاسفل */
+left: 700px; /* لليسار*/
+position: relative;
+margin: 0;
+text-align: left;
+font-weight: 50px;
+ font-size: 20px;
+ line-height: 50px;
+ letter-spacing: 0.03em;
+}
+.list li {
+  font-weight: bold; /* Make English text thicker */
+}
+/*pages */
 .contect{
   padding: 60px; /*changed*/
   margin-top: 500px;
