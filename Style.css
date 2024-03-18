@@ -43,6 +43,22 @@
  color: #12121F;
  margin: 0;
 }
+.Online{
+  position: absolute;
+width: 579px;
+height: 579px;
+left: 1000px;   
+top: 272px;
+z-index: 2
+}
+.shape{
+  position: absolute;
+  width: 1000px;
+  height: auto;
+  left: 720px;
+  top: -205px;
+  z-index: 1;
+}
 /*---------------------------------------------------------button  */
 .large-box {
   background: #5dadc4;
@@ -157,13 +173,28 @@ font-weight: 50px;
   font-weight: bold; /* Make English text thicker */
 }
 /*--------------------------------------------------Doctor---------------------------------- */
-.Doctor{
+.Doctor {
   padding: 60px; /*changed*/
   margin-top: 850px;
-  
-
 }
-.img2{
+
+.DoxTxt1 {
+  top: -700px;
+  left: 50px;
+  position: relative;
+  margin: 0;
+ 
+ }
+.DoxTxt2 {
+  top: -600px;
+  left: 100px;
+  position: relative;
+  margin: 0;
+  font-size: 140px;
+  line-height: 50px;
+}
+
+.img2 {
   width: 579px;
   position: absolute;
   right: 0rem; /* Align the element to the right side */
@@ -234,12 +265,12 @@ font-weight: 50px;
   position: absolute;
   bottom: 0; /* Position at the bottom of the container */
   left: 0; /* Position at the left of the container */
-  top: 3400px;
+top: 3400px;
 }
 .img3{
   width: 15rem; /*حجم اللوغو الي تحت */
-  position: absolute;
-  left: 20px; 
+position: absolute;
+  left: 20px;
   height: auto; 
   top: 70px;
 
