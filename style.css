@@ -239,6 +239,17 @@ header .navigation li a:hover span::before {
   background-color: #5dadc4;
   transition-duration: 1s;
 }
+.section5 p {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  color: black;
+  text-align: center;
+  font-weight: 20px;
+  margin-top:500px;
+}
+
 .footer {
   left: 0;
   bottom: 0;
@@ -407,7 +418,7 @@ a.phone-number {
     color: #f8f8f8;
     cursor: pointer;
     font-family: cursive;
-   left:100px;
+   left:20%;
    top: 150px;
   }
   .card:hover {
@@ -477,14 +488,14 @@ a.phone-number {
     position: absolute;
     width: 300px;
     height: 259px;
-    left:-100px;
+    left:-7%;
     top: 1550px;
   }
  .righ{
     position: absolute;
     width: 300px;
     height: 259px;
-    left:870px;
+    left:71%;
     top: 1550px;
   }
   .under{
