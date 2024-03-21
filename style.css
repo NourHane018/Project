@@ -166,8 +166,8 @@ header .navigation li a:hover span::before {
 }
 .par{
  position: relative;
- max-width: 600px;
- left: 800px;
+ max-width: 650px;
+ left: 600px;
  font-size: 1.5rem;
  text-align: left;
  margin-bottom: 20px;
