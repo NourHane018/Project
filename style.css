@@ -310,6 +310,18 @@ header .navigation li a:hover span::before {
  top: 105px;
  bottom: 33.72%;
 }
+a.phone-number {
+  position: absolute; 
+  top: 50%; 
+  left: 81%; 
+  transform: translate(-50%, -50%); 
+  font-size: 36px; 
+  color: #f8f8f8;
+  font-family: 'K2D';
+  font-style: italic;
+  font-weight: 500;
+  
+ }
 .group3{
  position: absolute;
  left: 80%;
