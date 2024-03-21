@@ -263,17 +263,27 @@ header .navigation li a:hover span::before {
  left: 10px;
  top: 10px;
 }
-.social{
- display: flex;
- flex-direction: row;
- align-items: flex-start;
- padding: 0px;
- gap: 18px;
- position: absolute;
- width: 189px;
- height: 47.22px;
- left: 324px;
- top: 117px;
+.Social {
+  position: relative;
+}
+
+.Social img {
+  position: absolute; 
+}
+.face {
+  top: 100px; 
+  left: 22%; 
+  
+}
+
+.mass {
+  top: 100px; 
+  left: 26%; 
+}
+
+.inste {
+  top: 100px; 
+  right:67%; 
 }
 .section5 h1{
  display: flex;
