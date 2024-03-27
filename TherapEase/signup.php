@@ -74,13 +74,22 @@
         <form action="signuo_post.php" method="POST">
             
             <div class="form-group">
+            <?php if(isset($user_error)){
+            echo $user_error;
+        } ?>
                 <input type="text" class="form-control" name="username" placeholder="Username">
             </div>
             <div class="form-group">
+            <?php if(isset($email_error)){
+            echo $email_error;
+        } ?>
                 <input type="email" class="form-control" name="email" placeholder="Email">
             </div>
             
             <div class="form-group">
+            <?php if(isset($pass_error)){
+            echo $pass_error;
+        } ?>
                 <input type="password" class="form-control" name="password" placeholder="Password">
             </div>
             <div class="form-group">
