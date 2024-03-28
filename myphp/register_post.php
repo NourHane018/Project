@@ -79,9 +79,7 @@ if(empty($passsword)){
 }
 else{
     if(($err_s == 0) && ($num_rows == 0)){
-        if($gender == 'male'){
-        
-        }
+       
         $sql = "INSERT INTO users(username,email,password,birthday,gender,md5_pass) 
         VALUES ('$username','$email','$passsword','$birthday','$gender','$md5_pass')";
         mysqli_query($conn,$sql);
