@@ -11,7 +11,7 @@
 <body>
     
 
-<h1>welcom to our sit web</h1><br>
+<h1>welcom to our sit web </h1><br>
 <a href="logout.php">logout</a>
 </form>
 </body>
