@@ -3,7 +3,8 @@ include('inc/connections.php');
 if(isset($_POST['newpassword'] )){
     $email= $_POST['email'];
     $password=$_POST['password'];
-    $check_password = "UPDATE `users` SET password = '$password' WHERE email = '$email'";
+    $md5_pass = md5($password);
+    $check_password = "UPDATE `users` SET password = '$password', md5_pass = '$md5_pass' WHERE email = '$email'";
     $result = mysqli_query($conn,$check_password);
     if ($result) {
         echo" The password has been updated successfully";
