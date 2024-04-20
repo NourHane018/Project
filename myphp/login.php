@@ -33,9 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if(empty($password)){
             $pass_error = '<p id="error">Please insert password</p>';
             $err_s = 1;
-            include_once('index.php');
+            
         }
-        if(!isset($err_s)){
+        if(isset($err_s)){include_once('index.php');}
+            else{
             $md5_pass = md5($password);
             $sql = "SELECT * FROM users WHERE username='$username' AND password='$password' AND md5_pass='$md5_pass' limit 1";
             $result = mysqli_query($conn,$sql);
