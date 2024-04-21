@@ -4,13 +4,15 @@ include('inc/connections.php');
 if(isset($_POST['newpassword'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $reset_token = $_POST['reset_token'];
     $md5_pass = md5($password);
-    $check_email_query = "SELECT * FROM `users` WHERE `email` = '$email'";
+    $check_email_query = "SELECT * FROM `users` WHERE `email` = '$email' AND `reset_token` = '$reset_token'";
+
     $check_email_result = mysqli_query($conn, $check_email_query);
 
-    if(mysqli_num_rows($check_email_result) > 0) {
+    if(mysqli_num_rows($check_email_result)) {
        
-        $update_password_query = "UPDATE `users` SET `password` = '$password', `md5_pass` = '$md5_pass' WHERE `email` = '$email'";
+        $update_password_query = "UPDATE `users` SET `password` = '$password', `md5_pass` = '$md5_pass' WHERE `email` = '$email'AND`reset_token`='$reset_token' ";
         $result = mysqli_query($conn, $update_password_query);
 
         if ($result) {
