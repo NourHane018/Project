@@ -20,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if(isset($_POST['keep'])){
             $keep = stripcslashes(htmlspecialchars($_POST['keep']));
-            if($keep ==1){
-                setcookie('username',$username,time()+3600,'/');
-                setcookie('password',$password,time()+3600,'/');
+            if($keep == 1){
+                setcookie('username', $username, time() + 3600, '/');
+                setcookie('password', $password, time() + 3600, '/');
             }
         }
         
@@ -33,21 +33,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if(empty($password)){
             $pass_error = '<p id="error">Please insert password</p>';
             $err_s = 1;
-            
         }
-        if(isset($err_s)){include_once('index.php');}
-            else{
+        
+        if(!isset($err_s)){ // Only proceed if no errors
             $md5_pass = md5($password);
-            $sql = "SELECT * FROM users WHERE username='$username' AND password='$password' AND md5_pass='$md5_pass' limit 1";
-            $result = mysqli_query($conn,$sql);
-            $row = mysqli_fetch_assoc($result);
+            $sql = "SELECT * FROM users WHERE username='$username' AND password='$password' AND md5_pass='$md5_pass' AND email_verified_at IS NOT NULL LIMIT 1"; // Ensure email_verified_at is not null
+            $result = mysqli_query($conn, $sql);
             $num_rows = mysqli_num_rows($result);
-            if($num_rows != 0){
+            
+            if($num_rows > 0){
+                $row = mysqli_fetch_assoc($result);
                 if($row['status'] == 'pending'){
                     echo "<p>Your account is pending approval from the admin. Please wait.</p>";
                 } else {
-                    $_SESSION['username']= $row['username'];
-                    $_SESSION['id']= $row['id'];
+                    $_SESSION['username'] = $row['username'];
+                    $_SESSION['id'] = $row['id'];
                     header('Location: home.php');
                     exit();
                 }
@@ -56,8 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 include_once('index.php');
                 exit();
             }
+        } else {
+            include_once('index.php');
+            exit();
         }
     }
 }
-?>
 
+    
+?>
