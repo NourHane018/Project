@@ -45,8 +45,8 @@ try {
 
  
     $mail->Subject = 'Reset password';
-    $mail->Body = '<p>Your verification code is: <b style="font-size: 30px;">' . $reset_token . '</b> 
-    Click the link to reset your password:</b> <a href="http://localhost/myphp/resetpassword.php?email=' . $_POST['email'] . '">Reset Password</a></p>';
+    $mail->Body = 'Click the link to reset your password:</b>
+     <a href="http://localhost/myphp/resetpassword.php?email=' . $_POST['email'] . '">Reset Password</a>';
 
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
