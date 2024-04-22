@@ -60,20 +60,16 @@
 <a href="logout.php">Logout</a>
 <div class="notification-icon" onclick="toggleNotifications()">
     <i class="fa-solid fa-bell"></i>
-</div>
+    </div>
+        <button onclick="toggleAppointments()">Show Appointments</button>
+    </div>
 
-
-</div>
-
-
+<!---   notifications      --->
 
 <div class="notification-icon" onclick="toggleNotifications()">
     <i class="fa-solid fa-bell"></i>
 </div>
-
 <div class="notification-dropdown" id="notificationDropdown">
-
-
 <?php
 session_start();
 
@@ -82,11 +78,9 @@ session_start();
 // Check if the user ID is set in the session
 if (isset($_SESSION['id'])) {
     // Retrieve the user ID
-    $user_id = $_SESSION['id'];
-
-   
-
-    // Query notifications and check if each one has been read by the user
+   $user_id = $_SESSION['id'];
+    
+   // Query notifications and check if each one has been read by the user
     $sql = "SELECT notifications.id, notifications.title, notifications.content, notifications.start_date, notifications.end_date, notifications.isAdmin, user_notification_status.is_read
             FROM notifications
             LEFT JOIN user_notification_status ON notifications.id = user_notification_status.notifications_id AND user_notification_status.user_id = $user_id";
@@ -105,6 +99,7 @@ if (isset($_SESSION['id'])) {
                     <button class="mark-read" onclick="markAsRead(<?php echo $row['id']; ?>)">Mark as Read</button>
                 <?php endif; ?>
             </div>
+
             <?php
         }
     } else {
@@ -116,11 +111,47 @@ if (isset($_SESSION['id'])) {
     exit(); // Make sure to exit after redirection
 }
 ?>
+</div>
+<!---   Appointements      --->
 
+<div class="appointments" id="appointmentsSection" style="display: none;">
+<?php
+// Include database connection
+include_once "inc/connections.php";
 
+// Check if the user ID is set in the session
+if (isset($_SESSION['id'])) {
+    // Retrieve the user ID
+    $user_id = $_SESSION['id'];
 
+    // Query appointments for the logged-in user
+    $sql_appointments = "SELECT appointments.patient_name, appointments.appointment_date 
+                        FROM appointments 
+                        INNER JOIN users ON appointments.user_id = users.id 
+                        WHERE users.id = $user_id";
 
-<!-- JavaScript -->
+    $result_appointments = $conn->query($sql_appointments);
+
+    if ($result_appointments && $result_appointments->num_rows > 0) {
+        // Appointments found, display them
+        while ($row = $result_appointments->fetch_assoc()) {
+            ?>
+            <div class="appointment-item">
+                <h3>Appointment Date and Time: <?php echo isset($row['appointment_date']) ? $row['appointment_date'] : 'N/A'; ?></h3>
+            </div>
+            <?php
+        }
+    } else {
+        echo "No appointments found for you.";
+    }
+} else {
+    // If user ID is not set in the session, redirect them to the login page
+    header("Location: login.php");
+    exit(); 
+}
+?>
+</div>
+
 <script>
     function toggleNotifications() {
         var dropdown = document.getElementById('notificationDropdown');
@@ -128,6 +159,15 @@ if (isset($_SESSION['id'])) {
             dropdown.style.display = 'block';
         } else {
             dropdown.style.display = 'none';
+        }
+    }
+
+    function toggleAppointments() {
+        var appointmentsSection = document.getElementById('appointmentsSection');
+        if (appointmentsSection.style.display === 'none') {
+            appointmentsSection.style.display = 'block';
+        } else {
+            appointmentsSection.style.display = 'none';
         }
     }
 
@@ -142,9 +182,14 @@ if (isset($_SESSION['id'])) {
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
-                    console.log(xhr.responseText); // Debugging statement to see the response
+                    console.log(xhr.responseText); 
                     if (xhr.status === 200) {
                         // Notification marked as read
+                        // Hide the "Mark as Read" button and change its color
+                        var markReadButton = notificationItem.querySelector('.mark-read');
+                        if (markReadButton) {
+                            markReadButton.style.display = 'none';
+                        }
                     } else {
                         // Handle error
                     }
