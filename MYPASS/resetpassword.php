@@ -4,7 +4,9 @@ include('inc/connections.php');
 if(isset($_POST['newpassword'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
-    if(isset($_POST['reset_token'])) {
+    
+    // Check if reset_token is set before accessing it
+    if(isset($_POST['reset_token']) && !empty($_POST['reset_token'])) {
         $reset_token = $_POST['reset_token'];
         $md5_pass = md5($password);
         $check_email_query = "SELECT * FROM `users` WHERE `email` = '$email' AND `reset_token` = '$reset_token'";
@@ -25,10 +27,12 @@ if(isset($_POST['newpassword'])) {
             echo "The email is not found in the database.";
         }
     } else {
-        echo "It is not your email,tray again.";
+        echo "It is not your email, try again.";
     }
 }
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -43,8 +47,8 @@ if(isset($_POST['newpassword'])) {
     <h1>Reset password</h1>
     <form  method="POST">
         <input type="email" name="email" placeholder="email" ><br><br>
-   <input type="password" name="password" placeholder="New password"    > <br><br><br>
-   
+   <input type="password" name="password" placeholder="New password"    > <br><br>
+   <input type="text" name="reset_token" placeholder="Reset token"><br><br>
    <input type="submit" name="newpassword" value="Reset" ><br><br>
    </form>
    <a href="index.php"> log in</a>
