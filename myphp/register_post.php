@@ -1,4 +1,12 @@
 <?php
+require 'Exception.php';
+require 'PHPMailer.php';
+require 'SMTP.php';
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 include('inc/connections.php');
 if(isset($_POST['submit'])){
     $username = stripcslashes(strtolower($_POST['username'])) ; 
@@ -89,31 +97,7 @@ else{
         if($gender == 'male'){
         
         }
-        $sql = "INSERT INTO users(username,email,password,birthday,gender,md5_pass) 
-        VALUES ('$username','$email','$passsword','$birthday','$gender','$md5_pass')";
-        mysqli_query($conn,$sql);
-        header('location:index.php');
-    }else{
-        include('register.php');
-    }
-}
-
-}
-
-
-
-
-ob_start();
-
-require 'Exception.php';
-require 'PHPMailer.php';
-require 'SMTP.php';
-
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+        ob_start();
 
 if(($err_s == 0) && ($num_rows == 0)){
  if (isset($_POST["submit"]))
@@ -167,7 +151,9 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }}}
-
-
-
+    }else{
+        include('register.php');
+    }
+}
+}
 ?>
