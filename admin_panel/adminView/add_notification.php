@@ -43,12 +43,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
 
-    // Insert advertisement into database
+    // Insert notification into database
     $sql = "INSERT INTO notifications (title, content, start_date, end_date) 
             VALUES ('$title', '$content', '$start_date', '$end_date')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "Advertisement added successfully.";
+        echo "Notification added successfully.";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

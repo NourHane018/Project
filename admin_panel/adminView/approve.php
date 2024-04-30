@@ -9,15 +9,17 @@ if(isset($_GET['id'])) {
     // Update the status of the user with the given ID to 'approved'
     $sql = "UPDATE users SET status = 'approved' WHERE id = $id";
     if(mysqli_query($conn, $sql)) {
-        
-        echo '<script>window.location.href = "../admin.php";</script>';
-
+        // If the query was successful, return a success message
+        // You can return a success message if needed
+        // echo "User approved successfully";
     } else {
-        // If there was an error with the query, display an error message
-        echo '<script>alert("Error updating status: ' . mysqli_error($conn) . '");</script>';
+        // If there was an error with the query, return an error message
+        echo "Error updating status: " . mysqli_error($conn);
+        exit(); // Terminate script execution
     }
 } else {
-    // If the ID parameter is not set in the URL, display an error message
-    echo '<script>alert("ID parameter is missing!");</script>';
+    // If the ID parameter is not set in the URL, return an error message
+    echo "ID parameter is missing!";
+    exit(); // Terminate script execution
 }
 ?>

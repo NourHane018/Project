@@ -11,15 +11,17 @@ if(isset($_GET['id'])) {
     $stmt->bind_param("i", $appointment_id);
 
     if ($stmt->execute()) {
-        // Redirect to admin page after successful deletion
-        header("Location: ../admin.php");
-        exit();
+        // Respond with success message
+         //echo "Appointment! deleted successfully.";
+        echo json_encode(array("success" => true));
     } else {
-        // Error occurred while deleting appointment
-        echo "Error deleting appointment: " . $conn->error;
+        // Respond with error message
+        echo json_encode(array("success" => false, "error" => "Error deleting appointment: " . $conn->error));
     }
     $stmt->close();
 } else {
-    echo "Appointment ID not provided.";
+    // Respond with missing ID error message
+    echo json_encode(array("success" => false, "error" => "Appointment ID not provided."));
 }
 ?>
+

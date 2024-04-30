@@ -40,14 +40,22 @@ try {
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
+    $reset_token= mt_rand(10000,99999);                     //Set email format to HTML
     $mail->Subject = 'Reset password';
-    $mail->Body = 'Click the link to reset your password:</b>
-     <a href="http://localhost/myphp/resetpassword.php?email=' . $_POST['email'] . '">Reset Password</a>';
-
-     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    $mail->Body = '<p>Your verification code is: <b style="font-size: 30px;">' . $reset_token . '</b> 
+    Click the link to reset your password:</b> <a href="http://localhost/myphp/resetpassword.php?email=' . $_POST['email'] . '">Reset Password</a></p>';
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $update_reset_token_query = "UPDATE `users` SET `reset_token` = '$reset_token' WHERE `email` = '$email'";
+    mysqli_query($conn, $update_reset_token_query);
+    
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
-    header('location:CHECK.php');
+    echo 'Message has been sent';
+    $sql = "INSERT INTO users(username,email,password,birthday,gender,md5_pass,verification_code,email_verified_at,reset_token) 
+    VALUES ('$username','$email','$passsword','$birthday','$gender','$md5_pass','$verification_code',NULL,'$reset_token')";
+    mysqli_query($conn,$sql);
+    header('location:code.php');
     ob_end_flush();
     exit();
 } catch (Exception $e) {

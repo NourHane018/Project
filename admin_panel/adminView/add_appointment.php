@@ -8,21 +8,21 @@
 </head>
 <body>
     <h2>Add New Appointment</h2>
-    <form method="POST" action="insert_appointment.php">
+    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="patient_name">Patient Name:</label>
         <select id="patient_name" name="patient_name" required>
             <?php
             // Include database connection
             include_once "../inc/connections.php";
 
-            // Query to retrieve patient names from the user table
-            $sql = "SELECT username FROM users";
+            // Query to retrieve patient names and ids from the user table
+            $sql = "SELECT id, username FROM users";
             $result = $conn->query($sql);
 
             // Check if there are any patients
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<option value='" . $row["username"] . "'>" . $row["username"] . "</option>";
+                    echo "<option value='" . $row["id"] . "'>" . $row["username"] . "</option>";
                 }
             }
             ?>
@@ -37,15 +37,36 @@
 
     <div id="result">
         <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                // Handle form submission
-                $patientName = $_POST["patient_name"];
-                $appointmentDatetime = $_POST["appointment_datetime"];
+        // Include database connection
+        include_once "../inc/connections.php";
 
-                echo "Patient Name: " . $patientName . "<br>";
-                echo "Appointment Date and Time: " . $appointmentDatetime;
+        // Check if form is submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Escape user inputs for security
+            $patient_id = mysqli_real_escape_string($conn, $_POST['patient_name']);
+            $appointment_datetime = mysqli_real_escape_string($conn, $_POST['appointment_datetime']);
+
+            // Insert appointment details into appointments table
+            $sql = "INSERT INTO appointments (patient_name, appointment_date, status, user_id) 
+                    VALUES (
+                        (SELECT username FROM users WHERE id = '$patient_id'),
+                        '$appointment_datetime',
+                        'Scheduled', 
+                        '$patient_id'
+                    )";
+
+            if(mysqli_query($conn, $sql)){
+                echo "Appointment added successfully.";
+                
+            } else{
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
             }
+            
+            // Close the database connection
+            mysqli_close($conn);
+        }
         ?>
     </div>
 </body>
 </html>
+

@@ -46,7 +46,7 @@
 
             <div class="col-sm-3">
          <div  class="card">
-            <a href="#patients"  onclick="showAdv()" style="text-decoration: none; color: inherit;">
+            <a href="#Notification"  onclick="showAdv()" style="padding: 0; height:4.5rem; text-decoration: none; color: inherit;">
               <i class="fa fa-th-large" style="font-size: 70px;"></i></a>
                     <h4  style="color:white;">Notifications</h4>
                     <h5 style="color:white;">

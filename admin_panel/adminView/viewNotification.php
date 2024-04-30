@@ -16,12 +16,12 @@
         h2 {
             margin-bottom: 20px;
         }
-        .advertisement-container {
+        .notification-container {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
-        .advertisement {
+        .notification {
             width: calc(33.33% - 20px);
             background-color: #fff;
             border: 1px solid #ddd;
@@ -30,21 +30,21 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
-        .advertisement:hover {
+        .notification:hover {
             transform: translateY(-5px);
         }
-        .advertisement h3 {
+        .notification h3 {
             margin-top: 0;
             color: #333;
         }
-        .advertisement p {
+        .notification p {
             color: #666;
         }
-        .advertisement-actions {
+        .notification-actions {
             margin-top: 15px;
             text-align: center;
         }
-        .advertisement-actions a {
+        .notification-actions a {
             display: inline-block;
             padding: 8px 16px;
             margin: 0 5px;
@@ -55,14 +55,14 @@
             text-decoration: none;
             transition: background-color 0.3s ease;
         }
-        .advertisement-actions a:hover {
+        .notification-actions a:hover {
             background-color: #0056b3;
         }
-        .add-advertisement-button {
+        .add-notification-button {
             margin-top: 20px;
             text-align: center;
         }
-        .add-advertisement-button a {
+        .add-notification-button a {
             display: inline-block;
             padding: 12px 24px;
             border: none;
@@ -72,50 +72,87 @@
             text-decoration: none;
             transition: background-color 0.3s ease;
         }
-        .add-advertisement-button a:hover {
+        .add-notification-button a:hover {
             background-color: #218838;
         }
     </style>
 </head>
 <body>
 
-<h2>Notifications</h2>
+<!-- Include jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<div class="advertisement-container">
-    <?php
-    // Include database connection
-    include_once "../inc/connections.php";
-
-    // Retrieve advertisements from database
-    $sql = "SELECT * FROM notifications";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            ?>
-            <div class="advertisement">
-                <h3><?php echo $row['title']; ?></h3>
-                <p><?php echo $row['content']; ?></p>
-                <p>Start Date: <?php echo date('Y-m-d', strtotime($row['start_date'])); ?></p>
-                <p>End Date: <?php echo date('Y-m-d', strtotime($row['end_date'])); ?></p>
-                <div class="advertisement-actions">
-                    <a href="adminView/edit_notification.php?id=<?php echo $row['id']; ?>">Edit</a>
-                    <a href="adminView/delete_notification.php?id=<?php echo $row['id']; ?>"
-                       onclick="return confirm('Are you sure you want to delete this notification?')">Delete</a>
-                </div>
-            </div>
-            <?php
+<!-- JavaScript for handling AJAX deletion -->
+<script>
+$(document).ready(function(){
+    // Event handler for deleting a notification
+    $('.delete-notification').click(function(e){
+        e.preventDefault();
+        var notificationId = $(this).data('id');
+        
+        // Display confirmation dialog
+        var confirmation = confirm('Are you sure you want to delete this notification?');
+        
+        // If user confirms deletion
+        if (confirmation) {
+            $.ajax({
+                type: 'GET',
+                url: 'adminView/delete_notification.php?id=' + notificationId,
+                success: function(response){
+                    $('#notification_' + notificationId).remove();
+                    //alert('Notification deleted successfully.');
+                },
+                error: function(xhr, status, error){
+                    alert('Error occurred while deleting notification.');
+                    console.error(error);
+                }
+            });
+        } else {
+            // If user cancels, do nothing
+            return false;
         }
-    } else {
-        echo "No notifications found.";
-    }
+    });
+});
+</script>
 
-    // Close database connection
-    mysqli_close($conn);
+<!-- Notifications in your HTML -->
+<div>
+  <h2>Notifications</h2>
+  <div class="notification-container">
+    
+    <?php
+      // Include database connection
+      include_once "../inc/connections.php";
+
+      // Retrieve notifications from database
+      $sql = "SELECT * FROM notifications";
+      $result = mysqli_query($conn, $sql);
+
+      if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
+              ?>
+              <div class="notification" id="notification_<?php echo $row['id']; ?>">
+                  <h3><?php echo $row['title']; ?></h3>
+                  <p><?php echo $row['content']; ?></p>
+                  <p>Start Date: <?php echo date('Y-m-d', strtotime($row['start_date'])); ?></p>
+                  <p>End Date: <?php echo date('Y-m-d', strtotime($row['end_date'])); ?></p>
+                  <div class="notification-actions">
+                      <a href="adminView/edit_notification.php?id=<?php echo $row['id']; ?>">Edit</a>
+                      <a href="#" class="delete-notification" data-id="<?php echo $row['id']; ?>">Delete</a>
+                  </div>
+              </div>
+              <?php
+          }
+      } else {
+          echo "No notifications found.";
+      }
+
+      // Close database connection
+      mysqli_close($conn);
     ?>
+  </div>
 </div>
-
-<div class="add-advertisement-button">
+<div class="add-notification-button">
     <a href="adminView/add_notification.php">Add New Notification</a>
 </div>
 

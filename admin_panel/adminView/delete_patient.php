@@ -2,8 +2,6 @@
 // Include database connection
 include_once "../inc/connections.php";
 
-
-
 // Check if patient ID is provided in the URL
 if(isset($_GET['id'])) {
     $patient_id = $_GET['id'];
@@ -11,7 +9,8 @@ if(isset($_GET['id'])) {
     // Delete patient from the database
     $sql = "DELETE FROM users WHERE id = $patient_id";
     if ($conn->query($sql) === TRUE) {
-        echo '<script>window.location.href = "../admin.php";</script>';
+        // Return a success message if needed
+        // echo "Patient deleted successfully";
     } else {
         echo "Error deleting patient: " . $conn->error;
     }
