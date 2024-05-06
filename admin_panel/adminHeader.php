@@ -3,21 +3,26 @@
    include_once "./inc/connections.php";
 
 ?>
-       
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="admin_panel/assets/css/utils.css">
+ <body>
+        
+      
  <!-- nav -->
- <nav  class="navbar navbar-expand-lg navbar-light px-5" style="background-color: #3B3131;">
+ <nav  class="navbar navbar-expand-lg navbar-light px-5 " >
     
     <a class="navbar-brand ml-5" href="./admin.php">
-        <img src="./assets/images/logo.png" width="80" height="80" alt="Swiss Collection">
+        <img src="assets/images/logo.svg" class="imgg"  alt="Swiss Collection">
     </a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
     
     <div class="user-cart">  
         
             <a href="../register.php" style="text-decoration:none;">
-                    <i class="fa fa-sign-in mr-5" style="font-size:30px; color:#fff;" aria-hidden="true"></i>
+                    <i class="fa fa-sign-in mr-5" aria-hidden="true" ></i>
             </a>
 
           
     </div>  
-</nav>
+</nav></body> 

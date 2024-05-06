@@ -4,16 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notifications</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+
+    <link rel="stylesheet" href="add.css">
+    <style>
+    
+  .bluebox {
+    width: 340px;
+    height: 600px;
+    top: -13%;
+  }
+  .welcome {
+    width: 690px;
+    height: 450px;
+    top: 20%;
+   
+  }
+</style>
 </head>
 <body>
 
-<h2>Add New Notifications </h2>
+<div class="container">
+  <div class="welcome">
+    <div class="bluebox">
+      <div class="signin">
+        <h1>Add New Notifications</h1>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" ><br><br>
     
-    <label for="content">Content:</label>
+    <label for="content" class="Content">Content:</label>
     <textarea id="content" name="content" ></textarea><br><br>
     
     <label for="start_date">Start Date:</label>
@@ -21,15 +40,25 @@
     
     <label for="end_date">End Date:</label>
     <input type="date" id="end_date" name="end_date" ><br><br>
-    <button type="submit" name="submit">Add Notification</button>
-    <a href="../admin.php" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border: none; border-radius: 5px;">Back</a>
-
+    <button type="submit" name="submit" class="button submit">Add Notification</button>
+    
 
     
 </form>
+</div>
+    </div>
 
-<hr>
+<div class="rightbox">
+      <h2 class="title"><span>Therap</span>Ease</h2>
+      
+      <img class="imag" src="Autism-bro.svg"/>
+      <p class="account">Return to Control Page</p>
+      <button class="button" onclick="window.location.href='../admin.php';">Back</button>
+    </div>
+    </div>
+ </div>
 
+</div>
 
 <?php
 // Include database connection

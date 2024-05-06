@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Patient</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link rel="stylesheet" href="add.css">
 </head>
 <body>
-
+<style>
+    
+  .bluebox {
+    width: 340px;
+    height: 600px;
+    top: -13%;
+  }
+  .welcome {
+    width: 690px;
+    height: 450px;
+    top: 20%;
+   
+  }
+</style>
 <?php
 // Include database connection
 include_once "../inc/connections.php";
@@ -49,19 +62,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<style>
-    @media print {
-        body * {
-            display: none;
-        }
-        .print-content {
-            display: block !important;
-        }
-    }
-</style>
+<div class="container">
+  <div class="welcome">
+    <div class="bluebox">
+      <div class="signin">
+        <h1>Add New Patient</h1>
 
-
-<h2>Add New Patient</h2>
 <form action="" method="post">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required><br><br>
@@ -74,6 +80,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <option value="male">Male</option>
         <option value="female">Female</option>
     </select><br><br>
-    <button type="submit">Add Patient</button>
-    <a href="../admin.php">Back</a>
+    <button type="submit"  class="button submit">Add Patient</button>
+   
 </form>
+     </div>
+    </div>
+    <div class="rightbox">
+      <h2 class="title"><span>Therap</span>Ease</h2>
+      
+      <img class="imag" src="Autism-bro.svg"/>
+      <p class="account">Return to Control Page</p>
+      <button class="button" onclick="window.location.href='../admin.php';">Back</button>
+    </div>
+  </div>
+ </div>
+
+</div>

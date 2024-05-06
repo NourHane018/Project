@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
        <link rel="stylesheet" href="./assets/css/style.css"></link>
+       <link rel="stylesheet" href="admin_panel/assets/css/utils.css">
+      
   </head>
 </head>
 <body >
@@ -14,7 +16,6 @@
         <?php
             include "./adminHeader.php";
             include "./sidebar.php";
-           
             include_once "./inc/connections.php";
 
         ?>
@@ -24,9 +25,9 @@
             <div  class="col-sm-3">
                 <div  class="card">
                 <a href="#patients"  onclick="showPatients()" style="text-decoration: none; color: inherit;">
-              <i class="fa fa-users mb-2" style="font-size: 70px;"></i></a>
-                    <h4  style="color:white;">Patients</h4>
-                    <h5 style="color:white;">
+              <i class="fa fa-users mb-2 card-img " style="font-size:70px; color:white"></i></a>
+                    <h4  class="card-title" style="color:white;">Patients</h4>
+                    <h5 class="card-content" style="color:white;">
                     <?php
                     $sql = "SELECT * FROM users WHERE isAdmin = 0";
                     $result = $conn->query($sql);
@@ -47,9 +48,9 @@
             <div class="col-sm-3">
          <div  class="card">
             <a href="#Notification"  onclick="showAdv()" style="padding: 0; height:4.5rem; text-decoration: none; color: inherit;">
-              <i class="fa fa-th-large" style="font-size: 70px;"></i></a>
-                    <h4  style="color:white;">Notifications</h4>
-                    <h5 style="color:white;">
+              <i class="fa fa-th-large card-img" style="font-size: 70px;color:white;"></i></a>
+                    <h4 class="card-title"  style="color:white;">Notifications</h4>
+                    <h5 class="card-content"  style="color:white;">
                     <?php
                     $sql = "SELECT * FROM notifications WHERE isAdmin = 0";
                     $result = $conn->query($sql);
@@ -70,9 +71,9 @@
             <div class="col-sm-3">
                 <div class="card">
                 <a href="#appoitment"   onclick="showAppontment()" style="text-decoration: none; color: inherit;">
-                    <i class="fa fa-list mb-2" style="font-size: 70px;"></i></a>
-                    <h4 style="color:white;">Appoitment</h4>
-                    <h5 style="color:white;">
+                    <i class="fa fa-list mb-2 card-img" style="font-size: 70px;color:white;"></i></a>
+                    <h4 class="card-title" style="color:white;">Appoitment</h4>
+                    <h5 class="card-content"  style="color:white;">
                     <?php
                        
                        $sql="SELECT * from appointments where isAdmin=0" ;

@@ -11,7 +11,7 @@
             margin: 0;
             padding: 20px;
             background-color: #f8f9fa;
-            padding: 0;
+            padding: 1rem;
         }
         h2 {
             margin-bottom: 20px;
@@ -43,20 +43,21 @@
         .notification-actions {
             margin-top: 15px;
             text-align: center;
+            
         }
         .notification-actions a {
             display: inline-block;
             padding: 8px 16px;
-            margin: 0 5px;
-            border: 1px solid #007bff;
+            margin: 0.8rem 5px;
+            border: 1px solid #315467;
             border-radius: 4px;
-            background-color: #007bff;
+            background-color: #315467;
             color: #fff;
             text-decoration: none;
             transition: background-color 0.3s ease;
         }
         .notification-actions a:hover {
-            background-color: #0056b3;
+            background-color: #5dadc4;
         }
         .add-notification-button {
             margin-top: 20px;
@@ -67,13 +68,17 @@
             padding: 12px 24px;
             border: none;
             border-radius: 4px;
-            background-color: #28a745;
+            background-color: #5dadc4;
             color: #fff;
             text-decoration: none;
             transition: background-color 0.3s ease;
         }
         .add-notification-button a:hover {
-            background-color: #218838;
+            background-color: #315467;
+        }
+        #Title{
+            color:#315467;
+            text-align: center;
         }
     </style>
 </head>
@@ -117,7 +122,7 @@ $(document).ready(function(){
 
 <!-- Notifications in your HTML -->
 <div>
-  <h2>Notifications</h2>
+  <h2 id="Title">Notifications</h2>
   <div class="notification-container">
     
     <?php

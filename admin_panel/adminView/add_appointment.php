@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Appointment</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+ <link rel="stylesheet" href="add.css">
 </head>
 <body>
-    <h2>Add New Appointment</h2>
-    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <div class="container">
+  <div class="welcome">
+    <div class="bluebox">
+      <div class="signin">
+        <h1>Add New Appointment</h1>
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="patient_name">Patient Name:</label>
         <select id="patient_name" name="patient_name" required>
             <?php
@@ -31,9 +36,24 @@
         <label for="appointment_datetime">Appointment Date and Time:</label>
         <input type="datetime-local" id="appointment_datetime" name="appointment_datetime" required><br><br>
         
-        <button type="submit">Add Appointment</button>
+        <button type="submit"  class="button submit">Add Appointment</button>
     </form>
-    <a href="../admin.php" >Back</a>
+      </div>
+    </div>
+    <div class="rightbox">
+      <h2 class="title"><span>Therap</span>Ease</h2>
+      
+      <img class="imag" src="Autism-bro.svg"/>
+      <p class="account">Return to Control Page</p>
+      <button class="button" onclick="window.location.href='../admin.php';">Back</button>
+    </div>
+  </div>
+ </div>
+
+</div>
+    
+   
+    
 
     <div id="result">
         <?php

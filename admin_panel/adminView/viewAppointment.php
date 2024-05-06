@@ -30,10 +30,35 @@ $(document).ready(function(){
 });
 </script>
 
-
+<style>
+    .add-notification-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .add-notification-button a {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            background-color: #5dadc4;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .add-notification-button a:hover {
+            background-color: #315467;
+        }
+        .delete-appointment{
+          text-decoration: none;
+          color:#5dadc4; 
+        }
+</style>
 <!-- Table in your HTML -->
 <div>
-  <h2>All Patient Appointments</h2>
+  <h2 style=" 
+            color:#315467;
+            text-align: center;
+        ">All Patient Appointments</h2>
   <table class="table">
     <thead>
       <tr>
@@ -73,10 +98,7 @@ $(document).ready(function(){
   </table>
 </div>
   <!-- Form to add a new appointment -->
-  <a href="adminView/add_appointment.php" style=" display: inline-block;
-    padding: 10px 20px;
-    background-color: #50C878;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;">Add New Appointment</a>
+  <div class="add-notification-button">
+  <a href="adminView/add_appointment.php">Add New Appointment</a>
+  </div>
 </div>

@@ -44,10 +44,38 @@ $(document).ready(function(){
     });
 });
 </script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <!-- Table in your HTML -->
+<style>
+    .add-notification-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .add-notification-button a {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            background-color: #5dadc4;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .add-notification-button a:hover {
+            background-color: #315467;
+        }
+        .delete-patient{
+          text-decoration: none;
+          color:#5dadc4;
+        }
+        
+
+</style>
 <div>
-  <h2>Pending Registrations</h2>
+  <h2 style=" 
+            color:#315467;
+            text-align: center;
+        ">Pending Registrations</h2>
   <table class="table">
     <thead>
       <tr>
@@ -73,7 +101,7 @@ $(document).ready(function(){
                 echo "<td>{$row['email']}</td>";
                 echo "<td>{$row['birthday']}</td>";
                 echo "<td>{$row['gender']}</td>";
-                echo "<td><a href='#' class='approve-registration' data-id='{$row['id']}'>Approve</a> | <a href='#' class='delete-patient' data-id='{$row['id']}'>Delete</a></td>";
+                echo "<td><a href='#' class='approve-registration delete-patient' data-id='{$row['id']}'>Approve</a> | <a href='#' class='delete-patient' data-id='{$row['id']}'>Delete</a></td>";
                 echo "</tr>";
             }
         } else {
@@ -85,7 +113,11 @@ $(document).ready(function(){
 </div>
 
 <div>
-  <h2>All Patients</h2>
+
+  <h2 style=" 
+            color:#315467;
+            text-align: center;
+        ">All Patients</h2>
   <table class="table">
     <thead>
       <tr>
@@ -120,5 +152,8 @@ $(document).ready(function(){
       }
     ?>
   </table>
-  <a href="adminView/add_patiente.php" style="display: inline-block; padding: 10px 20px; background-color: #50C878; color: white; text-decoration: none; border-radius: 5px;">Add New Patient</a>
+  <div class="add-notification-button">
+  <a href="adminView/add_patiente.php" >Add New Patient</a>
+  </div>
+  
 </div>

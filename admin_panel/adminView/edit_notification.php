@@ -39,17 +39,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Notification</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    
+    <link rel="stylesheet" href="add.css">
+    <style>
+    
+    .bluebox {
+      width: 340px;
+      height: 600px;
+      top: -13%;
+    }
+    .welcome {
+      width: 690px;
+      height: 450px;
+      top: 20%;
+     
+    }
+    </style>
 </head>
 <body>
+<div class="container">
+  <div class="welcome">
+    <div class="bluebox">
+      <div class="signin">
+        <h1>Edit Notification</h1>
 
-<h2>Edit Notification</h2>
 
 <form method="post">
     <label for="title">Title:</label><br>
@@ -61,11 +81,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <label for="end_date">End Date:</label><br>
     <input type="date" id="end_date" name="end_date" value="<?php echo $advertisement['end_date']; ?>"><br><br>
     <button type="submit">Update Notification</button>
-    <a href="../admin.php" >Back</a>
+    
 </form>
 
+</div>
+    </div>
+    <div class="rightbox">
+      <h2 class="title"><span>Therap</span>Ease</h2>
+      
+      <img class="imag" src="Autism-bro.svg"/>
+      <p class="account">Return to Control Page</p>
+      <button class="button" onclick="window.location.href='../admin.php';">Back</button>
+    </div>
+    </div>
+ </div>
 
-
+</div>
 </body>
 
 </html>

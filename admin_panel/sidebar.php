@@ -1,11 +1,11 @@
 <!-- Sidebar -->
 <div class="sidebar" id="mySidebar">
 <div class="side-header">
-    <img src="./assets/images/logo.png" width="120" height="120" alt="Swiss Collection"> 
-    <h5 style="margin-top:10px;">Hello, Doctor</h5>
+    <img src="assets/images/LogoC.png" class="sidebimg" alt="Swiss Collection"> 
+    <h5 class="hello"> Hello,<br> Doctor</h5>
 </div>
 
-<hr style="border:1px solid; background-color:#8a7b6d; border-color:#3B3131;">
+<hr style="border:1px solid; background-color:#f8f8f8; border-color:#5dadc4;">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <a href="./admin.php" ><i class="fa fa-home"></i> Dashboard</a>
     <a href="#patients"  onclick="showPatients()" ><i class="fa fa-users"></i> Patients</a>
@@ -16,7 +16,8 @@
 </div>
  
 <div id="main">
-    <button class="openbtn" onclick="openNav()"><i class="fa fa-home"></i></button>
+    <button id="myButton" class="openbtn" onclick="openNav()" style=" cursor: pointer;"><i class="fa fa-bars"></i></button>
 </div>
+
 
 
