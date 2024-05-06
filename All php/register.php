@@ -76,7 +76,7 @@
 </div>
 <script>
     // تغيير حجم الصندوق فقط إذا كان هناك خطأ واحد على الأقل
-    <?php if($error_count > 0) { ?>
+    <?php if($err_s  > 0) { ?>
         document.getElementById('registerer').style.height = '800px';
         document.getElementById('registerer').style.margin = '5rem 2rem ';
         document.getElementById('submit').style.left = '10rem';
