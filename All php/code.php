@@ -1,5 +1,6 @@
 <?php 
 include('inc/connections.php');
+
 if(isset($_POST['verify_email'])) {
     $email = $_POST['email'];
     $verification_code = $_POST['verification_code'];
@@ -8,10 +9,23 @@ if(isset($_POST['verify_email'])) {
     $result = mysqli_query($conn, $check_email);
     
     if (mysqli_num_rows($result) > 0) {
-        header('location:register.php');
-        exit(); 
+        // Generate random value for email_verified_at
+        $email_verified_at = mt_rand(10000, 99999);
+        
+        // Update email_verified_at for the user
+        $update_query = "UPDATE users SET email_verified_at = '$email_verified_at' WHERE verification_code = '$verification_code'";
+        $update_result = mysqli_query($conn, $update_query);
+        
+        if ($update_result) {
+            // Update successful, redirect to index.php
+            header('location:index.php');
+            exit(); 
+        } else {
+            // Update failed
+            echo "An error occurred while updating email_verified_at: " . mysqli_error($conn);
+        }
     } else {
-        echo "An error occurred while verifying the authenticated email " . mysqli_error($conn) ;
+        echo "No user found with the provided verification code.";
     }
 }
 ?>
