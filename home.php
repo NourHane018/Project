@@ -5,79 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        .notification-icon {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-        }
-        .notification-time {
-    position: relative;
-    top: 10px;
-    right: 10px;
-    color: #999; /* Change color here */
-    font-size: 12px; /* Adjust font size as needed */
-}
-        .notification-dropdown {
-            position: absolute;
-            top: 50px;
-            right: 20px;
-            width: 300px;
-            max-height: 400px;
-            overflow-y: auto;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: none;
-        }
-
-        .notification-item {
-            margin-bottom: 10px;
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .mark-read {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        .read {
-            background-color: #f0f0f0; /* Lighter color for read notifications */
-        }
-        .header {
-  overflow: hidden;
-  background-color: #f1f1f1;
-  padding: 20px 10px;
-}
-    </style>
+   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="header">
-<h1>Welcome to our website</h1>
-<a href="logout.php">Logout</a>
-<div class="notification-icon" onclick="toggleNotifications()">
-    <i class="fa-solid fa-bell"></i>
-    </div>
-        <button onclick="toggleAppointments()">Show Appointments</button>
-    </div>
+<section>
+  <header class="header container">
+    <ul class="header__menue">
+        <img src="admin_panel/assets/images/logo.svg" class="imgg">
+        <div class="notification-icon" onclick="toggleNotifications()">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+        <a href="logout.php"><i class="fa-solid fa-right-from-bracket logout"></i></a>
+        <button onclick="toggleAppointments()" class="Show">Show Appointments</button>
+        </ul>
+        </header>
+       
+        <div class="outer">
+    <div class="inner">
+      <div class="bg home">
+        <div class="scroll">
+          
+          <?php 
+            session_start();
+            // Include database connection
+            include_once "inc/connections.php";
 
+            // Check if user is logged in
+            if (isset($_SESSION['id'])) {
+                $user_id = $_SESSION['id'];
+
+                // Retrieve user's name from database
+                $sql = "SELECT username FROM users WHERE id = $user_id";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $username = $row['username'];
+                    echo "<span class='profile-name'>Welcome $username!</span>";
+                }
+            }
+            ?>
+        </div>
+        <div class="home-content">
+          <h1> This is where you'll find the home activities videos. Get down to the next page and watch the right video.</h1>
+         
+          <ul class="links">
+            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a href="#"><ion-icon class="icon" name="logo-instagram"></ion-icon></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <i class="fa-solid fa-computer-mouse mouse-move"></i>
+  
+</section>
+          
+        
+    </div>
+</body>
+</head>
 <!---   notifications      --->
-
-<div class="notification-icon" onclick="toggleNotifications()">
-    <i class="fa-solid fa-bell"></i>
-</div>
 <div class="notification-dropdown" id="notificationDropdown">
 <?php
-session_start();
+if (isset($_SESSION['id'])) {
+    // Retrieve the user ID
+    $user_id = $_SESSION['id'];
 
 // Include database connection
 include_once "inc/connections.php";
@@ -111,7 +105,7 @@ function relative_time($timestamp) {
         return ($years == 1) ? "1 year ago" : "$years years ago";
     }
 }
-
+}
 // Check if the user ID is set in the session
 if (isset($_SESSION['id'])) {
     // Retrieve the user ID
@@ -200,6 +194,89 @@ if (isset($_SESSION['id'])) {
 }
 ?>
 </div>
+<section>
+  <div class="outer">
+    <div class="inner">
+      <div class="bg content">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+           
+            <div class="swiper-slide">
+            <div class="title">
+                <h2>Matching activity</h2>
+                <p>1/8</p>
+              </div>
+              <video controls  src="video/video_2024-05-10_00-32-09.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              
+            </div>
+            <div class="swiper-slide">
+              <div class="title">
+                <h2>Modern Talking</h2>
+                <p>2/8</p>
+              </div>
+              <video controls  src="video/video_2024-05-10_00-32-15.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              
+            </div>
+            <div class="swiper-slide">
+              <div class="title">
+                <h2>Breathing activity</h2>
+                <p>3/8</p>
+              </div>
+
+              <video controls  src="video/video_2024-05-10_00-32-19.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              
+            </div>
+            <div class="swiper-slide">
+               <div class="title">
+                <h2>Screening activity</h2>
+                <p>4/8</p>
+              </div>
+              <video controls  src="video/video_2024-05-10_00-32-25.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+             
+            </div>
+            <div class="swiper-slide">
+              <div class="title">
+                <h2>Matching activity</h2>
+                <p>5/8</p>
+              </div>
+              <video controls  src="video/video_2024-05-10_00-32-28.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              
+            </div>
+            <div class="swiper-slide">
+             <div class="title">
+               <h2>Breathing activity</h2>
+                <p>6/8</p>
+              </div>
+              <video controls  src="video/video_2024-05-10_00-32-32.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+             
+               
+            </div>
+            <div class="swiper-slide">
+               <div class="title">
+                <h2>Modern Talking</h2>
+                <p>7/8</p>
+              </div>
+              <video controls  src="video_2024-05-10_15-50-24.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+             
+            </div>
+            <div class="swiper-slide">
+               <div class="title">
+                <h2>Modern Talking</h2>
+                <p>8/8</p>
+              </div>
+              <video controls  src="video_2024-05-10_15-50-24.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+             
+            </div>
+           
+            <!-- Add other swiper slides here -->
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <script>
     function reorderNotifications() {
         var notificationsContainer = document.getElementById('notificationDropdown');
@@ -282,6 +359,12 @@ if (isset($_SESSION['id'])) {
         }
     }
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.1/ScrollTrigger.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
