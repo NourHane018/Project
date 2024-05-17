@@ -51,8 +51,8 @@
           <h1> This is where you'll find the home activities videos. Get down to the next page and watch the right video.</h1>
          
           <ul class="links">
-            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-            <li><a href="#"><ion-icon class="icon" name="logo-instagram"></ion-icon></a></li>
+            <li><a href="https://web.facebook.com/profile.php?id=100069525348823"><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a href="https://www.instagram.com/_selmani.safia_?igsh=dzhjMDA0aWIwbGl6"><ion-icon class="icon" name="logo-instagram"></ion-icon></a></li>
           </ul>
         </div>
       </div>
@@ -206,7 +206,7 @@ if (isset($_SESSION['id'])) {
                 <h2>Matching activity</h2>
                 <p>1/8</p>
               </div>
-              <video controls  src="video/video_2024-05-10_00-32-09.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls  src="video/video_2024-05-17_21-21-40.mp4" alt="modern talking" width="200rem" height="200rem"></video>
               
             </div>
             <div class="swiper-slide">
@@ -214,7 +214,7 @@ if (isset($_SESSION['id'])) {
                 <h2>Modern Talking</h2>
                 <p>2/8</p>
               </div>
-              <video controls  src="video/video_2024-05-10_00-32-15.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls  src="video/v2.mp4" alt="modern talking" width="200rem" height="200rem"></video>
               
             </div>
             <div class="swiper-slide">
@@ -223,7 +223,7 @@ if (isset($_SESSION['id'])) {
                 <p>3/8</p>
               </div>
 
-              <video controls  src="video/video_2024-05-10_00-32-19.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls  src="video/v3.mp4" alt="modern talking" width="200rem" height="200rem"></video>
               
             </div>
             <div class="swiper-slide">
@@ -231,7 +231,7 @@ if (isset($_SESSION['id'])) {
                 <h2>Screening activity</h2>
                 <p>4/8</p>
               </div>
-              <video controls  src="video/video_2024-05-10_00-32-25.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls  src="video/v4.mp4" alt="modern talking" width="200rem" height="200rem"></video>
              
             </div>
             <div class="swiper-slide">
@@ -239,7 +239,7 @@ if (isset($_SESSION['id'])) {
                 <h2>Matching activity</h2>
                 <p>5/8</p>
               </div>
-              <video controls  src="video/video_2024-05-10_00-32-28.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls  src="video/v5.mp4" alt="modern talking" width="200rem" height="200rem"></video>
               
             </div>
             <div class="swiper-slide">
@@ -247,7 +247,7 @@ if (isset($_SESSION['id'])) {
                <h2>Breathing activity</h2>
                 <p>6/8</p>
               </div>
-              <video controls  src="video/video_2024-05-10_00-32-32.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls  src="video/v6.mp4" alt="modern talking" width="200rem" height="200rem"></video>
              
                
             </div>
@@ -256,7 +256,7 @@ if (isset($_SESSION['id'])) {
                 <h2>Modern Talking</h2>
                 <p>7/8</p>
               </div>
-              <video controls  src="video_2024-05-10_15-50-24.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls  src="video/v7.mp4" alt="modern talking" width="200rem" height="200rem"></video>
              
             </div>
             <div class="swiper-slide">
@@ -264,7 +264,7 @@ if (isset($_SESSION['id'])) {
                 <h2>Modern Talking</h2>
                 <p>8/8</p>
               </div>
-              <video controls  src="video_2024-05-10_15-50-24.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls  src="video/v8.mp4" alt="modern talking" width="200rem" height="200rem"></video>
              
             </div>
            

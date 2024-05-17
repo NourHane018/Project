@@ -68,7 +68,6 @@
  </div>
 
  <input type="submit" name="submit" id="submit" value="SING UP" class="btn2">
- <a href="code.php" class="btn2">Enter account confirmation code</a>
  </div>
 </div>
 
