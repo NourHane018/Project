@@ -77,7 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
             VALUES ('$title', '$content', '$start_date', '$end_date')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "Notification added successfully.";
+      echo "<div style='color:#315467; width: 100%; font-size: larger; text-align: center; margin-top: -540px;'>Notification added successfully.</div>";
+
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

@@ -11,8 +11,17 @@ function generateRandomPassword($length = 8) {
     }
     return $password;
 }
+function generateVerificationCode($length = 5) {
+    $characters = '0123456789';
+    $code = '';
+    for ($i = 0; $i < $length; $i++) {
+        $code .= $characters[rand(0, strlen($characters) - 1)];
+    }
+    return $code;
+}
 
 // Check if form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $username = $_POST['username'];
@@ -24,12 +33,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = generateRandomPassword();
     $md5_password = md5($password);
 
+    // Generate verification code
+    $email_verified_at = generateVerificationCode();
+
     // Set default status to 'approved'
-    $sql = "INSERT INTO users (username, email, birthday, gender, password, md5_pass, isAdmin, status) VALUES ('$username', '$email', '$birthday', '$gender', '$password', '$md5_password', 0, 'approved')";
+    $sql = "INSERT INTO users (username, email, birthday, gender, password, md5_pass, isAdmin, status, email_verified_at) VALUES ('$username', '$email', '$birthday', '$gender', '$password', '$md5_password', 0, 'approved', '$email_verified_at')";
 
     if ($conn->query($sql) === TRUE) {
         // Output success message
-        echo "New patient Username: $username | Password: $password added successfully. <a href='javascript:printContent()'><i class='fas fa-print'></i> Print</a>";
+        echo "<div style='color:#315467; width: 100%; font-size: larger; text-align: center; margin-top: 20px;'>
+        New patient Username: $username | Password: $password added successfully.
+        <a href='javascript:printContent()' style='text-decoration: none;'>
+            <i class='fas fa-print' style='margin-right: 5px; color:#315467;'></i>
+            <span style='font-weight: bold;'>Print</span>
+        </a>
+    </div>";
     } else {
         // Handle error in inserting user
         echo "Error adding patient: " . $conn->error;
@@ -99,7 +117,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     function printContent() {
         var printUsername = '<?php echo isset($username) ? $username : "" ?>';
         var printPassword = '<?php echo isset($password) ? $password : "" ?>';
-        var content = " Username: " + printUsername + " | Password: " + printPassword;
+        
+        var content = " patient Username: " + printUsername + " | Password: " + printPassword;
         var printWindow = window.open('', '_blank');
         printWindow.document.write(content);
         printWindow.document.close();
@@ -109,4 +128,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
-

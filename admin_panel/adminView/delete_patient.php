@@ -9,7 +9,7 @@ if(isset($_GET['id'])) {
     // Delete patient from the database
     $sql = "DELETE FROM users WHERE id = $patient_id";
     if ($conn->query($sql) === TRUE) {
-        // Return a success message if needed
+       
         // echo "Patient deleted successfully";
     } else {
         echo "Error deleting patient: " . $conn->error;

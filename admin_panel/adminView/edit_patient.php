@@ -42,7 +42,8 @@ if(isset($_GET['id'])) {
         
         $sql = "UPDATE users SET username='$username', email='$email', birthday='$birthday', gender='$gender' WHERE id=$patient_id";
         if ($conn->query($sql) === TRUE) {
-            echo "Patient details updated successfully.";
+           
+          echo "<div style='color:#315467; width: 100%; font-size: larger; text-align: center; margin-top: 20px;'>Patient details updated successfully.</div>";
             
             
         } else {

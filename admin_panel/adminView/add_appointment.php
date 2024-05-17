@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,17 +48,13 @@
       <img class="imag" src="Autism-bro.svg"/>
       <p class="account">Return to Control Page</p>
       <button class="button" onclick="window.location.href='../admin.php';">Back</button>
+           </div>
+     </div>
     </div>
+
   </div>
- </div>
-
-</div>
     
-   
-    
-
-    <div id="result">
-        <?php
+  <?php
         // Include database connection
         include_once "../inc/connections.php";
 
@@ -76,7 +74,9 @@
                     )";
 
             if(mysqli_query($conn, $sql)){
-                echo "Appointment added successfully.";
+                   echo "
+                   <p style='color:#315467; width: 100%; font-size: larger; text-align: center; margin-top: -32.2rem;
+                                   '>Appointment added successfully.</p>";                
                 
             } else{
                 echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
@@ -86,7 +86,13 @@
             mysqli_close($conn);
         }
         ?>
-    </div>
+    
+    
+
+    
 </body>
+
 </html>
 
+
+   

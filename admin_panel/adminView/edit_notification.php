@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // Update the notification in the database
     $sql = "UPDATE notifications SET title = '$title', content = '$content', start_date = '$start_date', end_date = '$end_date' WHERE id = $advertisement_id";
     if(mysqli_query($conn, $sql)) {
-        echo "Notification updated successfully.";
+        echo "<div style='color:#315467 ; width: 100%;font-size: larger; text-align: center; margin-top: 20px' >Notification updated successfully.</div>";
     } else {
         echo "Error updating notification: " . mysqli_error($conn);
     }

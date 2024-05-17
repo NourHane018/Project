@@ -11,7 +11,7 @@ if(isset($_GET['id'])) {
     $stmt->bind_param("i", $appointment_id);
 
     if ($stmt->execute()) {
-        // Respond with success message
+        
          //echo "Appointment! deleted successfully.";
         echo json_encode(array("success" => true));
     } else {
