@@ -75,7 +75,7 @@
 
             if(mysqli_query($conn, $sql)){
                    echo "
-                   <p style='color:#315467; width: 100%; font-size: larger; text-align: center; margin-top: -32.2rem;
+                   <p style='color:#315467; width: 100%; font-size: 1.9rem; text-align: center; margin-top: -32.2rem;
                                    '>Appointment added successfully.</p>";                
                 
             } else{

@@ -44,7 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if($num_rows > 0){
                 $row = mysqli_fetch_assoc($result);
                 if($row['status'] == 'pending'){
-                    echo "<p>Your account is pending approval from the admin. Please wait.</p>";
+                    echo "<div style='color:#315467; width: 100%; font-size: 3rem; text-align: center; margin-top: 8rem;'><p>Your account is pending approval from the admin. Please wait.</p></div>";
+                    echo '<img style=" width:30rem ; margin-left:31.5rem" src="img/Waiting-2--Streamline-Brooklyn.svg" alt="Alternative Text">';
                 } else {
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['id'] = $row['id'];

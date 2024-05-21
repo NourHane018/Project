@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
         // Output success message
-        echo "<div style='color:#315467; width: 100%; font-size: larger; text-align: center; margin-top: 20px;'>
+        echo "<div style='color:#315467; width: 100%; font-size: 1.9rem; text-align: center; margin-top: 20px;'>
         New patient Username: $username | Password: $password added successfully.
         <a href='javascript:printContent()' style='text-decoration: none;'>
             <i class='fas fa-print' style='margin-right: 5px; color:#315467;'></i>

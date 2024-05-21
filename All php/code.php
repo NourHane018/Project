@@ -25,7 +25,7 @@ if(isset($_POST['verify_email'])) {
             echo "An error occurred while updating email_verified_at: " . mysqli_error($conn);
         }
     } else {
-        echo "No user found with the provided verification code.";
+        echo "<div style='color:#315467; width: 100%; font-size: 3rem; text-align: center; margin-top: 3rem;'> No user found with the provided verification code.</div>";
     }
 }
 ?>

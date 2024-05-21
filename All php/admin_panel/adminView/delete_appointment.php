@@ -21,7 +21,7 @@ if(isset($_GET['id'])) {
     $stmt->close();
 } else {
     // Respond with missing ID error message
-    echo json_encode(array("success" => false, "error" => "Appointment ID not provided."));
+    echo json_encode(array("success" => false, "error" => "<div style='color:#315467; width: 100%; font-size: 1.9rem; text-align: center; margin-top: 20px;'>Appointment ID not provided.</div>"));
 }
 ?>
 

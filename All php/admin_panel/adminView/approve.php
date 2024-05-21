@@ -18,7 +18,7 @@ if(isset($_GET['id'])) {
     }
 } else {
     // If the ID parameter is not set in the URL, return an error message
-    echo "ID parameter is missing!";
+    echo "<div style='color:#315467; width: 100%; font-size: 1.9rem; text-align: center; margin-top: 20px;'> ID parameter is missing! </div>";
     exit(); 
 }
 ?>
