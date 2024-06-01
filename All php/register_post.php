@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 include('inc/connections.php');
-$err_s = 0 ;
+$err_s=0;
 if(isset($_POST['submit'])){
     $username = stripcslashes(strtolower($_POST['username'])) ; 
     $email = stripcslashes($_POST['email']);
@@ -145,23 +145,17 @@ else{
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
         
             $mail->send();
-        echo 'Message has been sent';
-        
-        $sql = "INSERT INTO users (username, email, password, birthday, gender, md5_pass, verification_code, email_verified_at) 
-                VALUES ('$username', '$email', '$password', '$birthday', '$gender', '$md5_pass', '$verification_code', NULL)";
-        
-        if (mysqli_query($conn, $sql)) {
-            header('Location: code.php');
+            echo 'Message has been sent';
+            $sql = "INSERT INTO users(username,email,password,birthday,gender,md5_pass,verification_code,email_verified_at) 
+            VALUES ('$username','$email','$passsword','$birthday','$gender','$md5_pass','$verification_code',NULL)";
+            mysqli_query($conn,$sql);
+            header('location:code.php');
+            ob_end_flush();
             exit();
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-    } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    }
-} else {
-    echo "All fields are required!";
-}
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }}}
+    }else{
+        include('register.php');
+    }}}?>
 
-mysqli_close($conn);}}}}
-?>
