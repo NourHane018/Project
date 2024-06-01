@@ -13,6 +13,6 @@
         }
     </style>
     <h1 class="Check">check your email!</h1>
-    <img style=" width:25rem ; margin-left:33rem" src="img/No-Email-3--Streamline-Brooklyn.svg" alt="Alternative Text">
+    <img style=" width:25rem ; margin-left:45rem" src="img/No-Email-3--Streamline-Brooklyn.svg" alt="Alternative Text">
 </body>
 </html>

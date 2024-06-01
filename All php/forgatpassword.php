@@ -19,7 +19,7 @@ if(isset($_POST['resetpassword'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>resetpassword</title>
+    <title>reset password</title>
  <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -61,7 +61,7 @@ margin-left:0rem;
   }  ?>
  <div class="login-box">   
    <div class="header">
-       <h1>Resetpassword</h1>
+       <h1>Reset password</h1>
    </div>
    <div class="content">
          <div class="input-box">

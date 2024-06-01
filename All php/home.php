@@ -14,11 +14,14 @@
   <header class="header container">
     <ul class="header__menue">
         <img src="admin_panel/assets/images/logo.svg" class="imgg">
-        <div class="notification-icon" onclick="toggleNotifications()">
+        <div class="notification-icon" onclick="toggleNotifications()" title="SHOW NPTIFICATIONS">
             <i class="fa-solid fa-bell"></i>
         </div>
-        <a href="logout.php"><i class="fa-solid fa-right-from-bracket logout"></i></a>
-        <button onclick="toggleAppointments()" class="Show">Show Appointments</button>
+        <a href="logout.php" title="log out"><i class="fa-solid fa-right-from-bracket logout"></i></a>
+        <div class="appo-icon"   onclick="toggleAppointments()" title="SHOW APPOINTMENTS">
+        <i  class="fa-solid fa-clock"></i>
+        </div>
+       
         </ul>
         </header>
        
@@ -48,12 +51,13 @@
             ?>
         </div>
         <div class="home-content">
+            <img class ="videoimg" src="img/Online-Consultation-1--Streamline-Brooklyn.svg" alt="">
           <h1> This is where you'll find the home activities videos. Get down to the next page and watch the right video.</h1>
          
-          <ul class="links">
-            <li><a href="https://web.facebook.com/profile.php?id=100069525348823"><i class="fa-brands fa-facebook-f"></i></a></li>
-            <li><a href="https://www.instagram.com/_selmani.safia_?igsh=dzhjMDA0aWIwbGl6"><ion-icon class="icon" name="logo-instagram"></ion-icon></a></li>
-          </ul>
+          <ul class="social-links list-inline">
+							<li><a href="https://web.facebook.com/profile.php?id=100069525348823"><i class="fab fa-facebook-f " style="margin-top: 1rem;"></i></a></li>
+							<li><a href="https://www.instagram.com/_selmani.safia_?igsh=dzhjMDA0aWIwbGl6"><i class="fab fa-instagram" style="margin-top: 0.9rem;"></i></a></li>
+						</ul>
         </div>
       </div>
     </div>
@@ -180,7 +184,7 @@ if (isset($_SESSION['id'])) {
         while ($row = $result_appointments->fetch_assoc()) {
             ?>
             <div class="appointment-item">
-                <h3>Appointment Date and Time: <?php echo isset($row['appointment_date']) ? $row['appointment_date'] : 'N/A'; ?></h3>
+                <h3 style="font-size:1rem">Appointment Date and Time: </h3> <p><?php echo isset($row['appointment_date']) ? $row['appointment_date'] : 'N/A'; ?></p>
             </div>
             <?php
         }
@@ -206,7 +210,7 @@ if (isset($_SESSION['id'])) {
                 <h2>Matching activity</h2>
                 <p>1/8</p>
               </div>
-              <video controls  src="video/video_2024-05-17_21-21-40.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls loop src="video/video_2024-05-17_21-21-40.mp4" alt="modern talking" width="200rem" height="200rem"></video>
               
             </div>
             <div class="swiper-slide">
@@ -214,7 +218,7 @@ if (isset($_SESSION['id'])) {
                 <h2>Modern Talking</h2>
                 <p>2/8</p>
               </div>
-              <video controls  src="video/v2.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls loop src="video/v2.mp4" alt="modern talking" width="200rem" height="200rem"></video>
               
             </div>
             <div class="swiper-slide">
@@ -223,7 +227,7 @@ if (isset($_SESSION['id'])) {
                 <p>3/8</p>
               </div>
 
-              <video controls  src="video/v3.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls loop src="video/v3.mp4" alt="modern talking" width="200rem" height="200rem"></video>
               
             </div>
             <div class="swiper-slide">
@@ -231,7 +235,7 @@ if (isset($_SESSION['id'])) {
                 <h2>Screening activity</h2>
                 <p>4/8</p>
               </div>
-              <video controls  src="video/v4.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls loop src="video/v4.mp4" alt="modern talking" width="200rem" height="200rem"></video>
              
             </div>
             <div class="swiper-slide">
@@ -239,7 +243,7 @@ if (isset($_SESSION['id'])) {
                 <h2>Matching activity</h2>
                 <p>5/8</p>
               </div>
-              <video controls  src="video/v5.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls loop src="video/v5.mp4" alt="modern talking" width="200rem" height="200rem"></video>
               
             </div>
             <div class="swiper-slide">
@@ -247,7 +251,7 @@ if (isset($_SESSION['id'])) {
                <h2>Breathing activity</h2>
                 <p>6/8</p>
               </div>
-              <video controls  src="video/v6.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls loop src="video/v6.mp4" alt="modern talking" width="200rem" height="200rem"></video>
              
                
             </div>
@@ -256,7 +260,7 @@ if (isset($_SESSION['id'])) {
                 <h2>Modern Talking</h2>
                 <p>7/8</p>
               </div>
-              <video controls  src="video/v7.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls loop src="video/v7.mp4" alt="modern talking" width="200rem" height="200rem"></video>
              
             </div>
             <div class="swiper-slide">
@@ -264,7 +268,7 @@ if (isset($_SESSION['id'])) {
                 <h2>Modern Talking</h2>
                 <p>8/8</p>
               </div>
-              <video controls  src="video/v8.mp4" alt="modern talking" width="200rem" height="200rem"></video>
+              <video controls loop  src="video/v8.mp4" alt="modern talking" width="200rem" height="200rem"></video>
              
             </div>
            
@@ -278,7 +282,7 @@ if (isset($_SESSION['id'])) {
 </section>
 
 <script>
-    function reorderNotifications() {
+   function reorderNotifications() {
         var notificationsContainer = document.getElementById('notificationDropdown');
         var notificationItems = notificationsContainer.querySelectorAll('.notification-item');
         var unreadNotifications = [];
@@ -340,22 +344,45 @@ if (isset($_SESSION['id'])) {
         }
     }
 
-
     function toggleNotifications() {
         var dropdown = document.getElementById('notificationDropdown');
-        if (dropdown.style.display === 'none') {
+        if (dropdown.style.display === 'none' || dropdown.style.display === '') {
             dropdown.style.display = 'block';
+            // Add event listener to hide notifications when clicking outside
+            document.addEventListener('click', hideNotificationsOnClickOutside);
         } else {
             dropdown.style.display = 'none';
+            // Remove event listener when notifications are hidden
+            document.removeEventListener('click', hideNotificationsOnClickOutside);
+        }
+    }
+
+    function hideNotificationsOnClickOutside(event) {
+        var dropdown = document.getElementById('notificationDropdown');
+        var icon = document.querySelector('.notification-icon');
+        if (!dropdown.contains(event.target) && !icon.contains(event.target)) {
+            dropdown.style.display = 'none';
+            document.removeEventListener('click', hideNotificationsOnClickOutside);
         }
     }
 
     function toggleAppointments() {
         var appointmentsSection = document.getElementById('appointmentsSection');
-        if (appointmentsSection.style.display === 'none') {
+        if (appointmentsSection.style.display === 'none' || appointmentsSection.style.display === '') {
             appointmentsSection.style.display = 'block';
+            document.addEventListener('click', hideAppointmentsOnClickOutside);
         } else {
             appointmentsSection.style.display = 'none';
+            document.removeEventListener('click', hideAppointmentsOnClickOutside);
+        }
+    }
+
+    function hideAppointmentsOnClickOutside(event) {
+        var appointmentsSection = document.getElementById('appointmentsSection');
+        var icon = document.querySelector('.appo-icon');
+        if (!appointmentsSection.contains(event.target) && !icon.contains(event.target)) {
+            appointmentsSection.style.display = 'none';
+            document.removeEventListener('click', hideAppointmentsOnClickOutside);
         }
     }
 </script>
