@@ -7,28 +7,30 @@ if(isset($_POST['newpassword'])) {
     
     // Check if reset_token is set before accessing it
     if(isset($_POST['reset_token']) && !empty($_POST['reset_token'])) {
-        $reset_token = $_POST['reset_token'];
+        $reset_token = mysqli_real_escape_string($conn, $_POST['reset_token']);
         $md5_pass = md5($password);
-        $check_email_query = "SELECT * FROM `users` WHERE `email` = '$email' AND `reset_token` = '$reset_token'";
+        $check_email_query = "SELECT * FROM users WHERE email = '$email' AND reset_token = '$reset_token'";
     
         $check_email_result = mysqli_query($conn, $check_email_query);
     
-        if(mysqli_num_rows($check_email_result)) {
-           
-            $update_password_query = "UPDATE `users` SET `password` = '$password', `md5_pass` = '$md5_pass' WHERE `email` = '$email' AND `reset_token` = '$reset_token'";
-            $result = mysqli_query($conn, $update_password_query);
-    
-            if ($result) {
-                echo "Password updated successfully.";
+        if ($check_email_result && mysqli_num_rows($check_email_result) > 0) {
+            // Update the password
+            $update_query = "UPDATE users SET password = '$password', reset_token = NULL WHERE email = '$email'";
+            $update_result = mysqli_query($conn, $update_query);
+            
+            if ($update_result) {
+                echo "<div style='color:#315467; width: 100%; font-size: larger; text-align: center; margin-top: 100px;'>Password updated successfully</div>";
             } else {
-                echo  "An error occurred while updating the password: " . mysqli_error($conn);
+                echo "<div style='color:#315467; width: 100%; font-size: larger; text-align: center; margin-top: 50px;'>An error occurred while updating the password</div>" . mysqli_error($conn);
             }
         } else {
-            echo "The email is not found in the database.";
+            echo "<div style='color:#315467; width: 100%; font-size: larger; text-align: center; margin-top: 100px;'>Invalid email or reset token</div>";
         }
     } else {
-        echo "It is not your email, try again.";
+        echo "<div style='color:#315467; width: 100%; font-size: larger; text-align: center; margin-top: 100px;'>Invalid reset token</div>";
     }
+} else {
+    echo "<div style='color:#315467; width: 100%; font-size: larger; text-align: center; margin-top: 100px;'>Invalid request</div>";
 }
 ?>
 
