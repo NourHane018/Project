@@ -1,14 +1,13 @@
 # Speech Therapy Web Application
 
 ## Overview
-This project is a web-based application designed to streamline the administrative tasks of speech therapists, enhancing their ability to manage appointments, send notifications, and share educational resources with patients.
+This project is a web-based application designed to streamline the administrative tasks of speech therapists, enhancing their ability to manage appointments, send notifications, and share educational videos with patients.
 
 ## Features
-- **User Management:** Admin login, user registration, and authentication.
-- **Appointment Management:** Schedule, edit, and delete appointments.
+- **User Management:** Admin(doctor) login, user(patient) registration, and authentication.
+- **Appointment Management:** Schedule and delete appointments.
 - **Notification Management:** Create and manage notifications, and track read status.
-- **Account Management:** View and update user profiles.
-- **Educational Content:** Access to educational videos for patients.
+- **Patient Access:** Patients can view notifications, appointments, and educational videos.
 
 ## Requirements
 - Node.js
@@ -16,15 +15,15 @@ This project is a web-based application designed to streamline the administrativ
 ## Setup
 1. Clone the repository:
     ```sh
-    git clone https://github.com/your-username/your-repo.git
+    git clone https://github.com/NourHane018/Project.git
     ```
 2. Navigate to the project directory:
     ```sh
-    cd your-repo
+    cd therapease
     ```
 3. Install dependencies:
     ```sh
-    npm install
+    npm install -g vite
     ```
 4. Start the development server:
     ```sh
