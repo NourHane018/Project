@@ -15,7 +15,7 @@ if(isset($_POST['newpassword'])) {
     
         if ($check_email_result && mysqli_num_rows($check_email_result) > 0) {
             // Update the password
-            $update_query = "UPDATE users SET password = '$password', reset_token = NULL WHERE email = '$email'";
+            $update_query = "UPDATE `users` SET `password` = '$password', `md5_pass` = '$md5_pass' WHERE `email` = '$email' AND `reset_token` = '$reset_token'";
             $update_result = mysqli_query($conn, $update_query);
             
             if ($update_result) {
