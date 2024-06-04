@@ -15,7 +15,7 @@ if(isset($_POST['newpassword'])) {
     
         if ($check_email_result && mysqli_num_rows($check_email_result) > 0) {
             // Update the password
-            $update_query = "UPDATE users SET password = '$password', reset_token = NULL WHERE email = '$email'";
+            $update_query = "UPDATE users SET password = '$password', md5_pass = '$md5_pass' , reset_token = NULL WHERE email = '$email'";
             $update_result = mysqli_query($conn, $update_query);
             
             if ($update_result) {
@@ -44,9 +44,8 @@ if(isset($_POST['newpassword'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RESET PASSWORD</title>
     <link rel="stylesheet" href="main.css">
-</head>
-<body>
-<style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
         .btn2{
  width: 15rem;
  margin-bottom: 3rem;
@@ -70,10 +69,17 @@ font-size:1.5rem;
   
  }
     </style>
+</head>
+<body>
+
+      
     <div class="login-container">
 <div class="login-box">   
      <div class="header">
      <h1>Reset password</h1>
+     <a href="http://localhost/All%20php/index.php" style="text-decoration:none;color:#315467;font-size:2.5rem;position: absolute;right:-1.9rem;top:22.3rem">
+                    <i class="fa fa-sign-in mr-5"  ></i>
+            </a>
      </div>
     <form  method="POST">
     <div class="content">
