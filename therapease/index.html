@@ -14,16 +14,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Roboto&display=swap" rel="stylesheet">
-   
- 
-
 </head>
 <body>
   <button onclick="topFunction()" id="myBtn" title="Click to go to the Top">Top</button>
   <header class="header container">
     <ul class="header__menue">
       <img class="logo"  src="public/logo.svg" alt="" >
-      <li><a class="header__link" href="#hero">Home</a></li>
+      <li><a class="header__link" href="#hero" >Home</a></li>
       <li><a class="header__link" href="#About">About</a></li>
       <li><a class="header__link" href="#Servisec">Services</a></li>
       <li><a class="header__link" href="#Doctor">Doctor</a></li>
@@ -38,7 +35,7 @@
   <div class="mobile__nav">
 
    <ul class="mobile__menue">
-      <li><a class="mobile__link" href="#hero">Home</a></li>
+      <li><a class="mobile__link" href="#hero" >Home</a></li>
       <li><a class="mobile__link" href="#About">About</a></li>
       <li><a class="mobile__link" href="#Servisec">Services</a></li>
       <li><a class="mobile__link" href="#Doctor">Doctor</a></li>
@@ -47,13 +44,26 @@
   </div>
   <section id="hero" class="hero container ">
     <img src="public/hero__img.svg" alt="" class="hero__img">
-   <div class="hero__content "> <h2 class="hero__title k2d-thin-italic">Al-Safa Clinic<br/>Welcome <span id="output">  to <br>TherapEase!</span></h2>
+   <div class="hero__content "> <h2 class="hero__title k2d-thin-italic">
+    <span id="hero__title1">Al-Safa Clinic</span><br/>
+    <span id="hero__title2">Welcome</span>
+    <span id="output">to<br/>TherapEase!</span>
+  </h2>
     <p class="hero__description"><span class="Make"> Make everything easy</span><br />
       We provide specialized services to improve speech and language.
       including speech rehabilitation sessions and speech therapy guidance for the general public. Whether you're experiencing speech and language disorders or seeking support in this area, we're here to help. Feel free to browse our website for more information.
     </p>
- 
-    <button class="btn hero__btn hero__content">join us</button> </div>
+    <button onclick="redirectToIndex()" class="btn hero__btn hero__content">Join Us</button>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        function redirectToIndex() {
+            window.location.href = 'http://localhost/Project/All%20php/register.php';
+        }
+        // Assign the function to the global scope
+        window.redirectToIndex = redirectToIndex;
+    });
+    </script>
   </section>
   <section id="About" class="About container section">
     <div class="About__contentimg">
@@ -66,10 +76,11 @@
  <section id="Servisec" class="Services container section ">
     <h2 class="services__title title">Our services</h2>
     <div class="services__description">
-      <div class="info k2d-extralight-italic">
-        <p>
-            We provide
-          <span class="text"> distinctive and wonderful</span> services that meet your needs and help you achieve your goals
+      <div class="info k2d-extralight-italic" >
+        <p id="We_provide" dir="auto">
+          <span id="provide_intro">We provide</span><br/>
+          <span class="text" id="distinctive">distinctive and wonderful</span>
+          <span id="services">services that meet your needs and help you achieve your goals</span>
         </p>
         
       </div>
@@ -77,42 +88,36 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <img
-              src="Addressing speech disorders..svg"
-              alt="" />
+              src="Addressing speech disorders..svg" alt="" />
             <div class="overlay">
               <span>1/9</span>
-              <h2>Addressing speech disorders</h2>
+              <h2 id="1">Addressing speech disorders</h2>
             </div>
           </div>
 
           <div class="swiper-slide">
             <img
-              class="img-position"
-              src="Addressing language disorders.svg"
-              alt="" />
+              class="img-position"  src="Addressing language disorders.svg" alt="" />
             <div class="overlay">
               <span>2/9</span>
-              <h2>Addressing language disorders</h2>
+              <h2 id="2">Addressing language disorders</h2>
             </div>
           </div>
 
           <div class="swiper-slide">
             <img
-              src="Assisting with delayed speech.svg"
-              alt="" />
+              src="Assisting with delayed speech.svg"  alt="" />
             <div class="overlay">
               <span>3/9</span>
-              <h2>Assisting with delayed speech</h2>
+              <h2 id="3">Assisting with delayed speech</h2>
             </div>
           </div>
 
           <div class="swiper-slide">
-            <img
-              src="Treating voice disorders.svg"
-              alt="" />
+            <img src="Treating voice disorders.svg"  alt="" />
             <div class="overlay">
               <span>4/9</span>
-              <h2>Treating voice disorders</h2>
+              <h2 id="4">Treating voice disorders</h2>
             </div>
           </div>
 
@@ -122,7 +127,7 @@
               alt="" />
             <div class="overlay">
               <span>5/9</span>
-              <h2>Supporting individuals with learning difficulties</h2>
+              <h2 id="5">Supporting individuals with learning difficulties</h2>
             </div>
           </div>
 
@@ -132,7 +137,7 @@
               alt="" />
             <div class="overlay">
               <span>6/9</span>
-              <h2>Helping individuals with Down syndrome</h2>
+              <h2 id="6">Helping individuals with Down syndrome</h2>
             </div>
           </div>
 
@@ -143,7 +148,7 @@
               alt="" />
             <div class="overlay">
               <span>7/9</span>
-              <h2>Providing therapy for autism</h2>
+              <h2 id="7">Providing therapy for autism</h2>
             </div>
           </div>
 
@@ -153,7 +158,7 @@
               alt="" />
             <div class="overlay">
               <span>8/9</span>
-              <h2>Treating aphasia</h2>
+              <h2 id="8">Treating aphasia</h2>
             </div>
           </div>
 
@@ -163,7 +168,7 @@
               alt="" />
             <div class="overlay">
               <span>9/9</span>
-              <h2>Assisting individuals with developmental disorders (Alzheimer's, Parkinson's)</h2>
+              <h2 id="9">Assisting individuals with developmental disorders (Alzheimer's, Parkinson's)</h2>
             </div>
           </div>
         </div>
@@ -176,10 +181,10 @@
  </section>
  <section id="Doctor" class="Doctor container section">
   
-    <h2 class="title k2d-light-italic">Doctor's information</h2>
+    <h2 class="title Doctor-info k2d-light-italic" >Doctor's information</h2>
     <div class="card">
        <h2 class="doctor-name k2d-light-italic " > DR.Safia Selmani</h2>
-        <p>A graduate from El-Hajj Lakhdar University in Batna 1 holds a bachelor's degree in speech therapy and a master's degree in speech and communication disorders. She has obtained several other certificates in the fields of speech therapy and allied health. With 3 years of experience in the field, she owns the "Safaa Speech Therapy Clinic."
+        <p id="d_info">A graduate from El-Hajj Lakhdar University in Batna 1 holds a bachelor's degree in speech therapy and a master's degree in speech and communication disorders. She has obtained several other certificates in the fields of speech therapy and allied health. With 3 years of experience in the field, she owns the 'Safaa Speech Therapy Clinic.'
      </p>
     </div>
       
@@ -193,15 +198,17 @@
 					<div class="content">
 						<div class="sm-title d-flex align-items-center">
 							<span class="line"></span>
-							<h3>Contact us</h3>
+							<h3 id="Contact_us">Contact us</h3>
 						</div>
 							<ul class="social-links list-inline">
 							<li><a href="https://web.facebook.com/profile.php?id=100069525348823"><i class="fab fa-facebook-f " style="margin-top: 1rem;"></i></a></li>
 							<li><a href="https://www.instagram.com/_selmani.safia_?igsh=dzhjMDA0aWIwbGl6"><i class="fab fa-instagram" style="margin-top: 0.9rem;"></i></a></li>
 						</ul>
 						<div class="hire-us d-flex justify-content-between align-items-center">
-							<span>Want to join us ?</span>
-							<button>JOIN NOW</button>
+							<span id="want_to_join">Want to join us ?</span>
+							<button onclick="redirectToIndex()" id="join_N">JOIN NOW</button>
+              
+            
 						</div>
 					</div>
 				</div>
@@ -212,8 +219,8 @@
 								<i class="fas fa-map-marker-alt"></i>
 							</div>
 							<div class="text">
-								<h3> Clinic address:</h3>
-								<p>Sefiane Municipality, Naqaos District, Batna Province.</p>
+								<h3 id="clinic_A"> Clinic address:</h3>
+								<p id="address">Sefiane Municipality, Naqaos District, Batna Province.</p>
 							</div>
 						</div>
 						<div class="single-info">
@@ -221,7 +228,7 @@
 								<a href="tel:0674674877"><i class="fas fa-phone-alt" ></i></a>
 							</div>
 							<div class="text">
-								<h3>Call for query</h3>
+								<h3 id="phone">Call for query</h3>
 								<p><a href="tel:0674674877">  0674674877 </a></p>
 							</div>
 						</div>
@@ -230,7 +237,7 @@
 								<a href="mailto:safiadhirar2@gmail.com"><i class="fas fa-envelope" ></i></a>
 							</div>
 							<div class="text">
-								<h3>Mail us for help!</h3>
+								<h3 id="email">Mail us for help!</h3>
 								<p> <a href="mailto:safiadhirar2@gmail.com">safiadhirar2@gmail.com </a> </p>
 							</div>
 						</div>
@@ -277,7 +284,9 @@
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }
+   
     </script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </body>
 </html>

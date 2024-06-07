@@ -26,7 +26,7 @@
     color: #12121f;
     font-size: var(--size-3xl);
 }
-.hero__title span {
+#output {
     color: #315467;
     font-size: var(--size-3xl);
     font-weight: 900;
@@ -71,7 +71,7 @@
     .hero__title{
         font-size: var(--size-4xl);
     }
-    .hero__title span {
+    #output {
         font-size: var(--size-4xl);
         font-weight:1000;
     }
@@ -93,7 +93,7 @@
     .hero__title{
         font-size: var(--size-4xl);
     }
-    .hero__title span {
+    #output{
         font-size: var(--size-4xl);
         font-weight: 900;
     }
@@ -109,7 +109,7 @@
     .hero__title{
         font-size: var(--size-5xl);
     }
-    .hero__title span {
+    #output {
         font-size: var(--size-5xl);
         font-weight:1000;
     }
@@ -134,7 +134,7 @@
      line-height: 1.4em;
      font-weight: 500px;
     }
-    .hero__title span {
+    #output {
         font-size:1em;
         line-height: 1em;
         font-weight:500px;
